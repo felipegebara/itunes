@@ -1,0 +1,62 @@
+#codigo feito no rstudio cloud
+
+
+#libs necessarias
+library(itunesr)
+library(textfeatures)
+library(tidyverse)
+library(SnowballC)
+library(RColorBrewer)
+library(wordcloud)
+library(tm)
+
+
+library(ggplot2)
+library(reshape2)
+library(RWeka)
+library(tidytext)
+
+
+
+
+
+
+
+#https://itunes.apple.com/br/app/digio/id1128793569?mt=8 deve entarna pagina e copiar os numeros apos o id
+
+reviews1 <- getReviews(1128793569,"BR",1)
+reviews2 <- getReviews(1128793569,"BR",2)
+reviews3 <- getReviews(1128793569,"BR",3)
+reviews4 <- getReviews(1128793569,"BR",4)
+reviews5 <- getReviews(1128793569,"BR",5)
+reviews6 <- getReviews(1128793569,"BR",6)
+reviews7 <- getReviews(1128793569,"BR",7)
+reviews9 <- getReviews(1128793569,"BR",9)
+reviews8 <- getReviews(1128793569,"BR",8)
+
+
+reviews10 <- getReviews(1128793569,"BR",10)
+reviews11 <- getReviews(1128793569,"BR",11)
+reviews12 <- getReviews(1128793569,"BR",12)
+
+
+
+
+
+#combina os reviews
+reviews <- rbind(reviews1,
+                 reviews2,
+                 reviews3,
+                 reviews4,
+                 reviews5,
+                 reviews6,
+                 reviews7,
+                 reviews8,
+                 reviews9
+                 
+             
+)
+
+#salva no xlsx
+library(xlsx)
+write.xlsx(reviews, "/cloud/project/review.xlsx")
